@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"
+        android:name="com.kody.jokeapp.HomeFragment"
+        />
+
+    <fragment
+        android:id="@+id/nav_joke_day"
+        android:label="@string/menu_joke_day"
+        tools:layout="@layout/fragment_joke_day"
+        android:name="com.kody.jokeapp.JokeDayFragment"
+        />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about"
+        android:name="com.kody.jokeapp.AboutFragment"
+        />
+
+
+</navigation>
