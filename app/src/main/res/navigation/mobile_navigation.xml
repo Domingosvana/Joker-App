@@ -10,7 +10,7 @@
         android:id="@+id/nav_home"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"
-        android:name="com.kody.jokeapp.HomeFragment"
+        android:name="com.kody.jokeapp.view.HomeFragment"
         />
 
     <fragment
