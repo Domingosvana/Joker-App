@@ -11,21 +11,6 @@ import retrofit2.Response
 class CategoryRemoteDataSource {
 
     fun findAllCategories(callback: ListCategoryCallback){
-        /*   Handler(Looper.getMainLooper()).postDelayed({
-                val response =  arrayListOf(
-                    ("Categoria 1" ),
-                    ("Categoria 1"),
-                    ("Categoria 1"),
-                    ("Categoria 1"),
-                    )
-                Log.i("TAG", "findAllCategories: $response")
-
-              callback.onSucess(response)
-
-              callback.onCoplete()
-            },400)
-
-          */
 
         HTTPClient.retrofit()
             .create(ChuckNorrisAPI::class.java)
@@ -47,10 +32,6 @@ class CategoryRemoteDataSource {
                         callback.onError(error ?: "Erro desconhecido")
                     }
                     callback.onCoplete()
-
-
-
-
                 }
 
                 override fun onFailure(
@@ -60,16 +41,7 @@ class CategoryRemoteDataSource {
                      Log.e("TAG", "onFailure: ", t)
                     callback.onError(t.message ?: "Erro interno")
                     callback.onCoplete()
-
-
                 }
-
-
-            }
-
-
+            })
     }
-
 }
-
-

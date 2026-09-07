@@ -4,4 +4,7 @@
     <string name="menu_joke_day">Piada do Dia</string>
     <string name="menu_about">Sobre</string>
     <string name="Social">Social</string>
+    <string name="build_version">Versão(%1$s)</string>
+    <string name="app_description">Este aplicativo oferece uma dose diária de humor.</string>
+    <string name="app_website">https://github.com/Domingosvana/Joker-App</string>
 </resources>

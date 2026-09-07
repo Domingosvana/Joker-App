@@ -8,11 +8,12 @@ import retrofit2.http.Query
 interface ChuckNorrisAPI {
 
     @GET("jokes/categories")
-    fun findAllCategories(@Query("apiKey") apiKey: String/* = HTTPClient.API_KEY*/  ): Call<List<String>>
+    fun findAllCategories(@Query("apiKey") apiKey: String): Call<List<String>>
 
     @GET("jokes/random")
-    fun findBy(@Query("category") categoryName: String, @Query("apiKey") apiKey: String/* = HTTPClient.API_KEY*/  ): Call<Joke>
+    fun findBy(@Query("category") categoryName: String, @Query("apiKey") apiKey: String): Call<Joke>
 
-
+    @GET("jokes/random")
+    fun findRandom(@Query("apiKey") apiKey: String): Call<Joke>
 
 }

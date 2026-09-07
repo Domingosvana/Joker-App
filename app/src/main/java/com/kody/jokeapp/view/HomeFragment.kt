@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kody.jokeapp.R
+import com.kody.jokeapp.data.CategoryRemoteDataSource
 import com.kody.jokeapp.model.Category
 import com.kody.jokeapp.presentation.HomePresenter
 import com.xwray.groupie.GroupAdapter
@@ -23,7 +25,13 @@ class HomeFragment:  Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = HomePresenter(this)
+
+
+        //SE EU PASSAR DESTA FORMA NO HOMEPRESETE NAO PRECISSO PASSAR NADA NO CONSTRUTOR
+        //private val dataSource: CategoryRemoteDataSource = CategoryRemoteDataSource()
+        //QUER DIZER NAO RECISSO CIRAR ISTO val dataSource = CategoryRemoteDataSource()
+        val dataSource = CategoryRemoteDataSource()
+        presenter = HomePresenter(this, dataSource)
     }
 
 
@@ -43,12 +51,22 @@ class HomeFragment:  Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_main)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        presenter.findAllCategories()
+
+
+        if (adapter.itemCount == 0){
+            presenter.findAllCategories()
+
+        }
 
         recyclerView.adapter = adapter
 
 
-
+    adapter.setOnItemClickListener { item, view ->
+        val bundle = Bundle()
+        val categoryName = (item as CategoryItem).category.name
+        bundle.putString(JokeFragment.CATEGORY_KEY, categoryName)
+        findNavController().navigate(R.id.action_nav_home_to_nav_joke, bundle)
+    }
 
 
 

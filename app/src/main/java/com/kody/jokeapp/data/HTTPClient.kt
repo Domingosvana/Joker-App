@@ -3,10 +3,11 @@ package com.kody.jokeapp.data
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object HTTPClient {
 
-    private const val BASE_URL = "https://atway.tiagoaguiar.dev/fenix/jokerapp/jokes/"
+    private const val BASE_URL = "https://atway.tiagoaguiar.dev/fenix/jokerapp/"
 
     val   API_KEY = "9dc55393-9aa6-4fb7-b9f3-9c09a949a77f"
     private fun httpClient(): OkHttpClient {

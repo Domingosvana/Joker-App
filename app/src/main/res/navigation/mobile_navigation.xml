@@ -11,20 +11,35 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"
         android:name="com.kody.jokeapp.view.HomeFragment"
+        >
+        <action
+            android:id="@+id/action_nav_home_to_nav_joke"
+            app:destination="@id/nav_joke" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_joke"
+
+        tools:layout="@layout/fragment_joker"
+        android:name="com.kody.jokeapp.view.JokeFragment"
         />
+
+
+
 
     <fragment
         android:id="@+id/nav_joke_day"
         android:label="@string/menu_joke_day"
         tools:layout="@layout/fragment_joke_day"
-        android:name="com.kody.jokeapp.JokeDayFragment"
+        android:name="com.kody.jokeapp.view.JokeDayFragment"
         />
 
     <fragment
         android:id="@+id/nav_about"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_about"
-        android:name="com.kody.jokeapp.AboutFragment"
+        android:name="com.kody.jokeapp.view.AboutFragment"
         />
 
 
